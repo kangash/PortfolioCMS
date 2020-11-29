@@ -1,0 +1,255 @@
+
+/* Первый пост */
+.title-section-post {
+    width: 100%;
+}
+
+.title-section-post-h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.tab-container {
+    /* border: 1px solid rgba(166, 192, 236, 0.3); */
+    display: flex;
+    flex-direction: row;/* Определает ось расположение элементов*/
+    justify-content: space-between;/* Определает раположение блоков отностиельно друг друга*/
+    flex-wrap: wrap; /*Разрешает перенос блока а другую страку */
+    align-items: stretch;/* Тоже что и justify-content только для рядов*/
+    align-content: stretch;/* Определает расположение рядов односительно друг друга*/
+    flex-flow: row wrap ; /* Обьединение flex-direction и flex-wrap*/
+}
+
+
+.post {
+    /* max-width: 390px;
+    height: 315px; */
+    border: 1px solid rgba(166, 192, 236, 0.3);
+    margin: 20px 20px;
+    flex: 1 1 370px;
+}
+.post:hover {
+    box-shadow: 0 0 7px rgba(71,124,215,.3);
+}
+
+
+
+
+
+.face-img-post {
+    width:250px;
+}
+
+.img-post {
+    width: 100%;
+    height: 180px;
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    font-size: 0;
+    margin-bottom: 10px;
+}
+
+.img-post:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: rotate(180deg);
+    background: linear-gradient(1turn,rgba(172, 197, 234, 0.98) -16.86%,hsl(204, 64%, 91%) 50.36%,hsl(204, 45%, 98%) 85.63%);
+    transition: all .2s ease;
+    z-index: 2;
+}
+.title-post {
+    display: inline-block;
+    margin: 5px 10px;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    color: #262626;
+    transition: opacity .2s;
+    word-break: break-word;
+
+}
+.title-post:hover {
+    color: #2855af;
+}
+
+
+.description-post  {
+    margin: 0px 10px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #3f3f3f;
+}
+
+
+.autor-post{
+    width: 100%;
+    /* border-top: 1px solid #dee2e6!important; */
+    display: flex;
+
+}
+.img-autor-post {
+    height: 30px;
+    width: 30px;
+    margin: 5px 10px;
+}
+
+.post-link-autor {
+    margin: 7px 10px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #3f3f3f;
+}
+
+
+
+.content-loading-post {
+    border: 1px solid rgba(166, 192, 236, 0.3);
+    text-align: center;
+    height: 30px;
+    padding: 10px;
+}
+.content-loading-post:hover {
+    border: 1px solid #2855af;
+}
+
+
+
+
+/* Пост с помощу флех бокса */
+
+.tab-container-flex {
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.post-flex {
+   flex: 1 1 250px;
+   text-align: center;
+   border: 1px solid rgba(166, 192, 236, 0.3);
+   margin: 10px;
+   display: flex;
+   flex-flow: row wrap;
+
+}
+.post-flex:hover {
+    box-shadow: 0 0 7px rgba(71,124,215,.3);
+}
+
+.post-flex-n1 {
+    flex: 1 1 500px;
+}
+.post-flex-n2 {
+    flex: 1 1 500px;
+}
+.post-flex-image {
+    margin: 10px;
+    flex: 1 1 200px;
+}
+
+.post-flex-image img {
+    width: 100%;
+    height: 180px;
+}
+
+.post-flex-content {
+    margin: 10px;
+    flex: 1 1 150px;
+
+}
+
+.post-flex-content p {
+    margin-bottom: 10px;
+}
+a.post-flex-buttom {
+    background: #406cd0;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a.post-flex-buttom:hover {
+    background: red;
+}
+
+button.post-flex-buttom {
+    background: #406cd0;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: 0.3s;
+    border-color: white;
+    border: 1px white solid;
+}
+
+
+/* Конец флех */
+
+
+/* Насало post-element*/
+.tab-container-element {
+    width: 100%;
+    display: flex;
+    justify-content: space-betwee;
+    flex-flow: row wrap;
+
+}
+
+.post-element {
+    padding-left: 15px;
+    padding-right: 15px;
+    flex: 1 1 325px;
+
+
+}
+
+.post-element-between {
+
+    overflow: hidden;
+    margin: 0 -10px 10px;
+}
+.post-element-between:hover {
+    -webkit-box-shadow: 0 0 20px 0 rgba(0,0,0,0.35);
+    -moz-box-shadow: 0 0 20px 0 rgba(0,0,0,0.35);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.35);
+
+}
+.post-element-internal {
+    margin:10px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.post-element-img {
+    width: 100%;
+    height: 150px;
+
+}
+
+.post-element-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    background-size: cover;
+
+}
+
+.post-element-text-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.post-element-text--link-autor {
+    display: flex;
+    align-items: center;
+}

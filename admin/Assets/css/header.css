@@ -1,0 +1,93 @@
+
+/* header */
+.header-top {
+    padding: 0.6rem!important;
+    box-shadow: 0 6px 4px -4px rgba(71,124,215,.3);
+    border-bottom: 1px solid #dee2e6!important;
+    display: flex!important;
+    flex-direction: row!important;
+    align-items: center!important;
+
+}
+
+.button-header {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: #2855af ;
+    border-color: #2855af ;
+    text-decoration: none;
+    margin-right: 5px;
+}
+.button-header:hover {
+    color: #ffff;
+    background-color: #2855af ;
+    border-color: #2855af ;
+  }
+
+.button-header-login {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: #000;
+    border-color: #fff;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+
+.button-header-login:hover {
+  color: #ffff;
+  background-color: #2855af ;
+  border-color: #2855af ;
+}
+.header-logo-link {
+    margin: 0 auto!important;
+}
+.header-logo {
+
+    height: 35px;
+    width: auto;
+
+}
+
+.header-nav {
+    margin-right: 1rem!important;
+    margin-bottom: 0!important;
+    margin-top: 0!important;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.text-dark-header {
+    text-decoration: none;
+    color: #000000;
+}
+/* /header */

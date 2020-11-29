@@ -1,0 +1,158 @@
+.author-info {
+    height: 400px;
+    border-bottom: 1px solid rgba(166, 192, 236, 0.3);
+}
+
+
+.author-info-top {
+    display: flex;
+    align-items: flex-end;
+}
+.author-info-left {
+    max-width: 400px;
+    height: 100%;
+}
+
+.author-info-logo {
+    width: 400px;
+}
+.author-info-right {
+    width: 100%;
+    margin: 40px;
+}
+
+
+.author-info-menu-slider {
+    display: flex;
+}
+
+.author-slider {
+    padding:15px;
+
+}
+
+.author-slider-img {
+    width: 100%;
+}
+
+
+
+/*  */
+.category-wrap {
+    padding: 15px;
+    background: white;
+    width: 200px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,.1);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 10px;
+
+  }
+  .category-wrap h3 {
+    font-size: 16px;
+    color: #000;
+    margin: 0 0 10px;
+    padding: 0 5px;
+    position: relative;
+  }
+  .category-wrap h3:after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #2855af;
+    position: absolute;
+    right: 5px;
+    bottom: 2px;
+    box-shadow: -8px -8px #2855af, 0 -8px #2855af, -8px 0 #2855af;
+  }
+  .category-wrap ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; 
+    border-top: 1px solid rgba(0,0,0,.3);
+  }
+  .category-wrap li {margin: 12px 0 0 0px;}
+  .category-wrap a {
+    text-decoration: none;
+    display: block;  
+    font-size: 13px;
+    color: rgba(0,0,0,.6);
+    padding: 5px;
+    position: relative;
+    transition: .3s linear;
+  }
+  .category-wrap a:after {
+    content:"\f18e";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 5px;
+    color: white;
+    transition: .2s linear;
+  }
+  .category-wrap a:hover {
+    background: #2855af;
+    color: white;
+  }
+
+
+
+
+/*  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+.main {
+    display: flex;
+    max-width: 1000px;
+    margin: 20px auto;
+    border: 1px solid rgba(166, 192, 236, 0.3);
+    justify-content: center;
+    align-items: stretch;
+    align-content: strech;
+    flex-flow: row wrap;
+    padding: 0;
+} 
+
+.bs {
+    flex-basis: 500px; /*3*/
+    flex-grow: 1; /*1*/
+    flex-shrink: 1; /*2*/
+    flex: 1 0 300px;
+    margin: 20px;
+}
+
+.b1 {
+    background-color: blue;
+
+}
+
+.b2 {
+    background-color: green;
+}
+
+.b3 {
+    background-color: blue;
+
+}
+
+.b4 {
+    background-color: green;
+}
+
+.b5 {
+    background-color: blue;
+
+}
+
+.b6 {
+    background-color: green;
+}
