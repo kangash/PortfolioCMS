@@ -2,7 +2,6 @@
 namespace Engine\Core\Template;
 
 use Engine\Core\Template\Theme;
-use Engine\Core\Template\Asset;
 use Engine\Core\Template\Setting;
 
 class View
@@ -14,13 +13,11 @@ class View
 
     public function __construct($di)
     {
-        $this->di       = $di;
-        $this->theme    = new Theme();
-        $this->setting  = new Setting($this->di);
-        $this->menuItem = new Menu($this->di);
+        $this->di        = $di;
+        $this->theme     = new Theme();
+        $this->setting   = new Setting($this->di);
+        $this->menuItem  = new Menu($this->di);
 
-        //print_r(Setting::get('name_site')->value);
-        //print_r(Menu::getItem());
     }
 
     public function render($template, $vars = [])
@@ -39,7 +36,7 @@ class View
                 sprintf('Tempate "%s"not found %s', $template, $templatePath)
             );
         }
-
+        // $vars['lang']
         $vars['lang'] = $this->di->get['language'];
         $this->theme->setData($vars);
         extract($vars); //из всех ключей масива создаст переменные 
@@ -61,11 +58,8 @@ class View
     private function getTemplatePath($template, $env = null)
     {
         if($env == 'Cms') {
-            $theme = Setting::get('active_theme');
+            $theme = Setting::activeTheme();
 
-            if ($theme->value == '') {
-                $theme = \Engine\Core\Config\Config::item('defaultTheme');
-            }
             return ROOT_DIR . '/content/themes/' . $theme->value . '/' . $template . '.php';
         }
             return path('view') . '/' . $template . '.php';

@@ -1,7 +1,7 @@
 <?php $this->theme->header(); ?>
 
     <main>
-        <div class="container">
+        <div class="container mt-5">
             <div class="row">
                 <div class="col page-title">
                     <h3>Create page</h3>

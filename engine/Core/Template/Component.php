@@ -1,16 +1,17 @@
 <?php
-
-
 namespace Engine\Core\Template;
 
-
+use Engine\Core\Template\Setting;
+// damp this class and file
 class Component
 {
 
 
     public static function load($name, $data = [])
     {
-        $templateFile = ROOT_DIR . '/content/themes/default/' . $name . '.php';
+        $activeTheme = Setting::activeTheme()->value;
+
+        $templateFile = ROOT_DIR . '/content/themes/'. $activeTheme .'/' . $name . '.php';
 
         if (ENV == 'Admin') {
             $templateFile = path('view') . '/' . $name . '.php';
@@ -25,4 +26,5 @@ class Component
             );
         }
     }
+
 }

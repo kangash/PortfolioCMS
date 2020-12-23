@@ -83,6 +83,7 @@ class QueryBuilder
         if(!empty($data)) {
             foreach ($data as $key => $value) {
                 $this->sql['set'] .= "{$key}= '$value'"; //непонятно
+                //print_r(next($data));
                 if(next($data)) {
                     $this->sql['set'] .= ", ";
                 }

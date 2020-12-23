@@ -8,6 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'Engine\\DI\\' => array($baseDir . '/engine/DI'),
     'Engine\\' => array($baseDir . '/engine'),
+    'Content\\plugins\\' => array($baseDir . '/content/plugins'),
+    'Content\\' => array($baseDir . '/content'),
     'Cms\\' => array($baseDir . '/cms'),
     'Admin\\' => array($baseDir . '/admin'),
 );

@@ -7,6 +7,11 @@ use Engine\Core\Config\Config;
 
 class Theme
 {
+    public $dirConfig;
+    const MASK_TEMPLATE_FILE = 'content\\themes\\%s\\%s.php';
+    const MASK_IMAGE_JPG     = 'catalog\\View\\Images\\%s.jpg';
+    const MASK_IMAGE_PNG     = 'catalog\\View\\Images\\%s.png';
+    const MASK_IMAGE_DIR     = 'catalog\\View\\Images\\';
     /**
      * Rules template name
      */
@@ -29,7 +34,7 @@ class Theme
     protected static $data = [];
 
     public $asset;
-
+    public $publicData = [];
     public $theme;
 
 
@@ -57,8 +62,6 @@ class Theme
         echo $nameSite . ' | ' . $description;
     }
 
-
-
     /**
      * @param null $name
      */
@@ -67,7 +70,7 @@ class Theme
         $name = (string) $name;
         $file = self::detectNameFile($name, __FUNCTION__);
 
-        Component::load($file);
+        self::loadComponent($file);
     }
 
     /**
@@ -78,7 +81,7 @@ class Theme
         $name = (string) $name;
         $file = self::detectNameFile($name, __FUNCTION__);
 
-        Component::load($file);
+        self::loadComponent($file);
     }
 
     /**
@@ -89,7 +92,7 @@ class Theme
         $name = (string) $name;
         $file = self::detectNameFile($name, __FUNCTION__);
 
-        Component::load($file);
+        self::loadComponent($file);
     }
 
     /**
@@ -101,7 +104,7 @@ class Theme
         $name = (string) $name;
 
         if ($name !== '') {
-            Component::load($name, $data);
+            self::loadComponent($name, $data);
         }
     }
 
@@ -137,7 +140,112 @@ class Theme
     {
 
     }
-}
 
+    public static function loadComponent($name, $data = [])
+    {
+        $activeTheme = Setting::activeTheme()->value;
+
+        $templateFile = ROOT_DIR . '/content/themes/'. $activeTheme .'/' . $name . '.php';
+
+        if (ENV == 'Admin') {
+            $templateFile = path('view') . '/' . $name . '.php';
+        }
+
+        if (is_file($templateFile)) {
+            extract(array_merge($data, Theme::getData()));
+            require($templateFile);
+        } else {
+            throw new \Exception(
+                sprintf('View file %s does not exist!', $templateFile)
+            );
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //___________________________________no static
+
+    public function setPublicDara($data)
+    {
+        $this->publicData = $data;
+    }
+
+    public function themeBuilder($callPath = '',array $data = [])
+    {
+        if ($callPath !== '') {
+            return $this->load($callPath, $data);
+        } 
+        return $this->themeException($callPath);
+    }
+
+    public function load($callPath, array $data)
+    {
+        $activeTheme = Setting::activeTheme()->value;
+        $templateFile = sprintf(self::MASK_TEMPLATE_FILE, $activeTheme, $callPath);
+        $data += ['theme' => $this];
+        $datas = array_merge($this->publicData, $data);
+        extract($datas);
+
+        if (file_exists($templateFile)) {
+            require $templateFile;
+            return true;
+        } else {
+            throw new \Exception(
+                sprintf('View file %s does nod exist!', $templateFile)
+            );
+            return false;
+        }
+
+    }
+    public function loadImage($image, $format = 'jpg')
+    {
+        switch ($format) {
+            case 'jpg':
+            $pathImage = sprintf(self::MASK_IMAGE_JPG, $image);
+            return $pathImage;
+            break;
+            case 'png':
+                $pathImage = sprintf(self::MASK_IMAGE_PNG, $image);
+                return $pathImage;
+            break;
+            default:
+            return self::MASK_IMAGE_DIR;
+
+        }
+
+    }
+
+    public function themeException($callPath)
+    {
+
+        throw new \Exception(
+            sprintf('You didn\'t enter a file name: \'%s\'.', $callPath)
+        );
+    }
+
+
+
+
+
+}
 
 ?>

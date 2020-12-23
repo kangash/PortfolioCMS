@@ -28,7 +28,7 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
+  background-color: #fff;
 }
 
 .form-signin {
@@ -65,11 +65,22 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.btn-return {
+  display: block;
+  border: 1px solid #000;
+  text-align: center;
+  color: #000;
+  font-size: 16px;
+  padding: 16px 47px;
+  width: 350px;
+  font-weight: 600;
+  margin: 0 auto;
+}
     </style>
 <body>
 
       <div class="container">
-
+            <a class="btn-return" href="/">< Вернуться на гласную</a>
           <form class="form-signin" role="form" method='POST', action="/admin/auth/">
               <h2 class="form-signin-heading">Login to CMS</h2>
               <input type="email" name="email" class="form-control" placeholder="Email" required autofocus>

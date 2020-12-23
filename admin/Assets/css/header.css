@@ -3,7 +3,6 @@
 .header-top {
     padding: 0.6rem!important;
     box-shadow: 0 6px 4px -4px rgba(71,124,215,.3);
-    border-bottom: 1px solid #dee2e6!important;
     display: flex!important;
     flex-direction: row!important;
     align-items: center!important;
@@ -91,3 +90,5 @@
     color: #000000;
 }
 /* /header */
+
+

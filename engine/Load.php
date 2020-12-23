@@ -23,33 +23,22 @@ class Load
 
     public function model($modelName, $modelDir = false, $env = false)
     {
-
         $modelName  = ucfirst($modelName);
         $modelDir   = $modelDir ? $modelDir : $modelName;
         $env        = $env ? $env : ENV;
-
 
         $namespaceModel = sprintf(
             self::MASK_MODEL_REPOSITORY,
             $env, $modelDir, $modelName
         );
 
-
         $isClassModel = class_exists($namespaceModel);
-
-
         if ($isClassModel) {
             // Set to DI
             $modelRegistry = $this->di->get('model') ?: new \stdClass();
-
-
-
             $modelRegistry->{lcfirst($modelName)} = new $namespaceModel($this->di);
             $this->di->set('model', $modelRegistry);
-            
         }
-
-
         return $isClassModel;
     }
 
@@ -57,17 +46,13 @@ class Load
     public function language($path)
     {
         $file = sprintf(self::FILE_MASK_LANGUAGE, 'english', $path); // получаем путь к файлу .ini
-
         $content = parse_ini_file($file, true);//парсем файл и получаем многомерный масив 
 
         //Set to DI
         $languageName = $this->toComeCase($path);
-
         $language = $this->di->get('language') ?: new \stdClass();//Создаем пустой класс
         $language->{$languageName} = $content; // Создаем пустому класу свойство и присваваем ей значение масива 
-
         $this->di->set('language', $language); // добавляем stdClass с масивом в ди контейнер
-
         return $content;
 
     }

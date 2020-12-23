@@ -1,7 +1,7 @@
 <?php $this->theme->header(); ?>
 
 
-<div class="container">
+<div class="container mt-5">
         <div class="row">
             <div class="col page-title">
                 <h3>Theme Setting</h3>
@@ -17,6 +17,7 @@
 
 
     <div class="tab-container-flex">
+    <?php print_r($themes)?>
     <?php foreach ($themes as $theme): ?>
         <div class="post-flex  <?php echo "post-flex-n".$i; ?>">
             <div class="post-flex-image">

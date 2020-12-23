@@ -31,6 +31,22 @@ function path($section)
     }
 }
 
+function path_content($section = '')
+{
+    $pathMask = $_SERVER['DOCUMENT_ROOT'] . DS . 'content' . DS . '%s';
+
+    switch (strtolower($section)) 
+    {
+        case 'themes':
+            return sprintf($pathMask, 'themes');
+        case 'plugins':
+            return sprintf($pathMask, 'plugins');
+        case 'uploads':
+            return sprintf($pathMask, 'uploads');
+        default:
+            return $_SERVER['DOCUMENT_ROOT'] . DS . 'content';
+    }
+}
 /**
  * Returns list languages
  *
@@ -92,6 +108,58 @@ function getThemes()
         }
     }
     return $themes;
+}
+
+function getPlugins()
+{
+    global $di;
 
 
+    $pluginsPath = path_content('plugins');
+    $list        = scandir($pluginsPath);
+    $plugins     = [];
+
+    if  (!empty($list)) {
+        unset($list[0]);
+        unset($list[1]);
+
+        foreach ($list as $namePlugin) {
+            $namespace = '\\Content\\plugins\\' . $namePlugin . '\\Plugin';
+          
+            if (class_exists($namespace)) {
+                $plugin = new $namespace($di);
+                $plugins[$namePlugin] = $plugin->details();
+            }
+        }
+    }
+    return $plugins;
+}
+
+/**
+ * @param string $switch
+ * @return array
+ */
+function getTypes($switch = 'page')
+{
+    $themePath = path_content('themes') . '/' . \Setting::get('active_theme')->value;
+    $list      = scandir($themePath);
+    $types     = [];
+
+    if (!empty($list)) {
+        unset($list[0]);
+        unset($list[1]);
+
+        foreach ($list as $name) {
+            if (\Engine\Helper\Common::searchMatchString($name, $switch)) {
+                list($switch, $key) = explode('-', $name, 2);
+
+                if (!empty($key)) {
+                    list($nameType) = explode('.', $key, 2);
+                    $types[$nameType] = ucfirst($nameType);
+                }
+            }
+        }
+    }
+
+    return $types;
 }

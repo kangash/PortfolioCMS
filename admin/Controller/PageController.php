@@ -25,6 +25,7 @@ class PageController extends AdminController
         $this->load->model('Page');
         $this->model = $this->di->get('model');
 
+        $this->data['baseUrl'] = \Engine\Core\Config\Config::item('baseUrl');
         $this->data['page'] = $this->model->page->getPageData($id);
 
         $this->view->render('pages/edit', $this->data);
@@ -54,8 +55,6 @@ class PageController extends AdminController
     
         $params = $this->request->post;
 
-        echo $params;
-  
         if (isset($params['title'])) {
             $pageId = $this->model->page->updatePage($params);
             echo $pageId;

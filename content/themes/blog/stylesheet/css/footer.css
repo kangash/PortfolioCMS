@@ -1,0 +1,67 @@
+.footer {
+    border-top: 1px solid #dee2e6!important;
+    margin-top: 400px;
+    /* padding-left: 72px;
+    padding-right: 72px; */
+}
+.footer-links {
+    margin: auto 10%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.footer-links-left {
+    padding: 0 0 20px;
+}
+
+.footer-logo-img {
+    display: block;
+    display: inline-block;
+    width: auto;
+    height: 32px;
+    margin: 40px 0;
+}
+
+
+.footer-a {
+    text-decoration: none;
+    color: #000;
+        /* float: left;
+        font-size: large; */
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 15px;
+    line-height: 20px;
+}
+ 
+
+.footer-links-right {
+    padding: 40px 0;
+}
+.footer-img-appstore {
+    width: auto;
+    height: 50px;
+
+}
+.footer-logo-link {
+ text-decoration: none;;
+}
+
+
+
+
+
+
+.footer-copyright {
+    border-top: 1px solid rgba(166, 192, 236, 0.3);
+}
+
+.footer-copyright-p {
+    margin: auto 10%;
+    font-size: 13px;
+    line-height: 16px;
+    color: #919399;
+    padding: 16px 0;
+ }

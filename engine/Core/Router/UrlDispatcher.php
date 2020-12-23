@@ -22,9 +22,6 @@ class UrlDispatcher
         'any' => '[a-zA-z0-9\.\-_@]+'
     ];
 
-    private $controller;
-    private $parameters;
-
     public function addPattern($key, $pattern)
     {
         $this->patterns[$key] = $pattern;
@@ -32,6 +29,7 @@ class UrlDispatcher
     public function register($method, $pattern, $controller)
     {
             $convert = $this->convertPattern($pattern);
+            
             $this->routes[strtoupper($method)][$convert] = $controller;
     }
 
@@ -58,11 +56,12 @@ class UrlDispatcher
         {
           return new DispatchedRoute($routes[$uri]);
         }
-        return $this->doDispatch($method, $uri); 
+           return $this->doDispatch($method, $uri); 
     }
 
     private function doDispatch($method, $uri)
-    {
+    { 
+
         foreach($this->routes($method) as $route => $controller)
         {
             $pattern = '#^' . $route . '$#s';
@@ -88,7 +87,7 @@ class UrlDispatcher
                 unset($parameters[$key]);
             }
         }
-        return $parameters;
+        return $parameters; 
     }
 
 }

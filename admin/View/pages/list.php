@@ -1,7 +1,7 @@
 <?php $this->theme->header(); ?>
 
     <main>
-        <div class="container">
+        <div class="container mt-5">
             <h1>Pages - <a href="/admin/pages/create/">Create page</a></h1>
 
 

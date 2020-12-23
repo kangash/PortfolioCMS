@@ -20,6 +20,8 @@ abstract class Controller
 
     protected $model;
 
+    protected $plugin;
+
 
     public function __construct(DI $di)
     {
@@ -29,8 +31,9 @@ abstract class Controller
         $this->config  = $this->di->get('config');
         $this->request = $this->di->get('request');
         $this->load    = $this->di->get('load');
-        $this->model   = $this->di->get('model');-
-
+        $this->model   = $this->di->get('model');
+        $this->plugin  = $this->di->get('plugin');
+        
         $this->initVars();
     }
 
@@ -53,6 +56,15 @@ abstract class Controller
 
     }
 
+    public function getRequest()
+    {
+        return $this->request;
+    }
+
+    public function getPlugin()
+    {
+        return $this->plugin;
+    }
 
 
 }

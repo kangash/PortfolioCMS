@@ -16,6 +16,14 @@ class Page
 
     public $content;
 
+    public $segment;
+
+    public $type;
+
+    public $status;
+
+    public $image;
+
     public $date;
 
     /**
@@ -66,6 +74,49 @@ class Page
         $this->content = $content;
     }
 
+    public function setSegment($segment)
+    {
+        $this->segment = $segment;
+    }
+
+        /**
+     * @return mixed
+     */
+    public function getSegment()
+    {
+        return $this->segment;
+    }
+
+        /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+        /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+            /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+        /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
     /**
      * @return mixed
      */
@@ -80,5 +131,21 @@ class Page
     public function setDate($date)
     {
         $this->date = $date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $date
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
     }
 }

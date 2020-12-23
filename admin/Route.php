@@ -19,11 +19,15 @@
   $router->add('post', '/admin/posts/', 'PostController:listing');
   $router->add('post-create', '/admin/posts/create/', 'PostController:create');
   $router->add('post-edit', '/admin/posts/edit/(id:int)', 'PostController:edit');
-  
   //Post Routes ($POST)
   $router->add('post-add', '/admin/post/add/', 'PostController:add', 'POST');
   $router->add('post-update', '/admin/post/update/', 'PostController:update', 'POST');
 
+  //Plugin Routes ($GET)
+  $router->add('list-plugins', '/admin/plugins/', 'PluginController:listPlugins');
+  //Plugin Routes ($POST)
+  $router->add('install-plugin', '/admin/plugins/ajaxInstall/', 'PluginController:ajaxInstall', 'POST');
+  $router->add('activate-plugin', '/admin/plugins/ajaxActivate/', 'PluginController:ajaxActivate', 'POST');
   
   
   //Setting Rourer GET 

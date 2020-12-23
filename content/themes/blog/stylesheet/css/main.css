@@ -1,0 +1,166 @@
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  .form-signin .form-signin-heading,
+  .form-signin .checkbox {
+    margin-bottom: 10px;
+  }
+  .form-signin .checkbox {
+    font-weight: normal;
+  }
+  .form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+
+
+
+/*list card*/
+.card {
+  width: 300px;
+  height: 400px;
+  background: #000;
+  box-shadow: 0 0 7px rgba(71,124,215,.3);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .25s ease;
+  border: 0px solid rgba(0,0,0,.125);
+    border-radius: 0px;
+}
+
+.card:hover {
+  transform: scale(1);
+}
+
+.card:hover:after {
+  height: 280px;
+}
+
+.card:hover .con-text p {
+  margin-bottom: 0px;
+  opacity: 1;
+}
+
+.card:hover img {
+  transform: scale(1);
+}
+
+
+.card:hover .ul {
+  transform: translate(0);
+  opacity: 1;
+}
+
+.card:after {
+  width: 100%;
+  content: '';
+  left: 0px;
+  bottom: 0px;
+  height: 150px;
+  position: absolute;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1));
+  z-index: 20;
+  transition: all .25 ease;
+}
+
+.card img {
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  transition: all 1.25 ease;
+}
+
+
+.card .con-text {
+  z-index: 30;
+  position: absolute;
+  bottom: 0px;
+  color: #fff;
+  padding: 20px;
+  padding-bottom: 30px;
+  
+}
+.card .con-text h2 {
+  font-size: 20px;
+}
+
+.card .con-text p {
+  font-size: 14px;
+  opacity: 0;
+  margin-bottom: -130px;
+  transition: all .25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.card .con-text p button {
+  padding: 7px 5px;
+  border-radius: 12px;
+  background: transparent;
+  border: 2px solid #fff;
+  margin-top: 5px;
+  margin-left: auto;
+  cursor: pointer;
+  transition: all .25 ease;
+  font-size: .9rem;
+  outline: none;
+  color: #fff;
+}
+
+.card .con-text p button:hover {
+  background:  #fff;
+  color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

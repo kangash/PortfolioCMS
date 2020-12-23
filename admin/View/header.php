@@ -36,12 +36,12 @@
 <body>
   
 <header>
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <nav class="navbar navbar-toggleable-md navbar-light header-top">
         <div class="container">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="/admin/">Admin CMS</a>
+            <a class="navbar-brand" href="/admin/">Admin Developer CMS</a>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav mr-auto">
                 <?php foreach (Customize::getInstance()->getAdminMenuItems() as $key => $item): ?>

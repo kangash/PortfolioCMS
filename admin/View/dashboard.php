@@ -1,8 +1,7 @@
 <?php $this->theme->header(); ?>
 
     <main>
-        <div class="container">
-            <br><br><br>
+        <div class="container mt-5">
             <div style="text-align:center;">
                 <h1><i class="icon-heart icons"></i> Welcome to CMS Admin Panel</h1>
                 Watch on channel  <a href="/admin/user/">
