@@ -2,7 +2,7 @@
 
 namespace Engine\Core\Auth;
 
-use Engine\Helper\Cookie;
+use Engine\Core\HTTP\Cookie;
 // implements AuthInterface
 class Auth 
 {

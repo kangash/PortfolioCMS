@@ -16,6 +16,7 @@ class Asset
      */
     public static $container = [];
 
+    
     /**
      * @param string $link
      */

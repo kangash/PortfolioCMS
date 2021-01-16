@@ -17,7 +17,6 @@
 
 
     <div class="tab-container-flex">
-    <?php print_r($themes)?>
     <?php foreach ($themes as $theme): ?>
         <div class="post-flex  <?php echo "post-flex-n".$i; ?>">
             <div class="post-flex-image">
@@ -46,7 +45,7 @@
             </div>
         </div>
 
-        <?php endforeach; ?>
+    <?php endforeach; ?>
     </div>
 </div>
 <?php $this->theme->footer(); ?>

@@ -4,11 +4,14 @@ namespace Engine\Core\Template;
 
 use Engine\Core\Config\Config;
 
+use Catalog\Model\SettingMirror;
+use Catalog\Model\MenuMirror;
+
 
 class Theme
 {
     public $dirConfig;
-    const MASK_TEMPLATE_FILE = 'content\\themes\\%s\\%s.php';
+    const MASK_TEMPLATE_FILE = 'catalog\\View\\themes\\%s\\%s.php';
     const MASK_IMAGE_JPG     = 'catalog\\View\\Images\\%s.jpg';
     const MASK_IMAGE_PNG     = 'catalog\\View\\Images\\%s.png';
     const MASK_IMAGE_DIR     = 'catalog\\View\\Images\\';
@@ -21,7 +24,7 @@ class Theme
         'sidebar' => 'sidebar-%s',
     ];
 
-    const URL_THEME_MASK ='%s/content/themes/%s';
+    const URL_THEME_MASK ='%s/catalog/View/themes/%s';
     /**
      * Url current theme
      * @type string
@@ -55,8 +58,8 @@ class Theme
 
     public static function title()
     {
-        $nameSite    = Setting::get('name_site')->value;
-        $description = Setting::get('description')->value;
+        $nameSite    = SettingMirror::get('name_site')->value;
+        $description = SettingMirror::get('description')->value;
 
 
         echo $nameSite . ' | ' . $description;
@@ -135,17 +138,11 @@ class Theme
     }
 
 
-    // Fo Asset
-    public static function getThemePath()
-    {
-
-    }
-
     public static function loadComponent($name, $data = [])
     {
-        $activeTheme = Setting::activeTheme()->value;
+        $activeTheme = SettingMirror::activeTheme()->value;
 
-        $templateFile = ROOT_DIR . '/content/themes/'. $activeTheme .'/' . $name . '.php';
+        $templateFile = ROOT_DIR . '/catalog/View/themes/'. $activeTheme .'/' . $name . '.php';
 
         if (ENV == 'Admin') {
             $templateFile = path('view') . '/' . $name . '.php';
@@ -161,35 +158,20 @@ class Theme
         }
     }
 
+    public static function getThemePath()
+    {
+    return ROOT_DIR . '/catalog/View/themes/' . SettingMirror::activeTheme()->value . '/';
+    } 
 
 
+    //___________________________________next logic no static____________________________
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //___________________________________no static
-
-    public function setPublicDara($data)
+    public function setPublicData($data)
     {
         $this->publicData = $data;
     }
 
-    public function themeBuilder($callPath = '',array $data = [])
+    public function builder($callPath = '', array $data = [])
     {
         if ($callPath !== '') {
             return $this->load($callPath, $data);
@@ -199,7 +181,7 @@ class Theme
 
     public function load($callPath, array $data)
     {
-        $activeTheme = Setting::activeTheme()->value;
+        $activeTheme = SettingMirror::activeTheme()->value;
         $templateFile = sprintf(self::MASK_TEMPLATE_FILE, $activeTheme, $callPath);
         $data += ['theme' => $this];
         $datas = array_merge($this->publicData, $data);
@@ -229,14 +211,11 @@ class Theme
             break;
             default:
             return self::MASK_IMAGE_DIR;
-
         }
-
     }
 
     public function themeException($callPath)
     {
-
         throw new \Exception(
             sprintf('You didn\'t enter a file name: \'%s\'.', $callPath)
         );

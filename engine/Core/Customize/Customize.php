@@ -1,7 +1,8 @@
 <?php
+
 namespace Engine\Core\Customize;
 
-use Engine\Core\Customize\Config;
+use Engine\Core\Customize\MenuAdmin;
 
 /**
  * Class Customize
@@ -23,7 +24,7 @@ class Customize
     public function __construct($di)
     {
         static::$di = $di;
-        $this->config = new Config();
+        $this->config = new MenuAdmin();
     }
 
     /**
@@ -55,7 +56,7 @@ class Customize
      */
     public function getAdminMenuItems()
     {
-        return $this->getConfig()->get('dashboardMenu');
+        return $this->config->get('dashboardMenu');
     }
 
     /**
@@ -63,6 +64,6 @@ class Customize
      */
     public function getAdminSettingItems()
     {
-        return $this->getConfig()->get('settingMenu');
+        return $this->config->get('settingMenu');
     }
 }

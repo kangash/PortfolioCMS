@@ -1,3 +1,4 @@
+
 <li class="menu-item-<?= $item->id ?>" data-id="<?= $item->id ?>">
     <i class="icon-pencil icons"></i> <input type="text" value="<?= $item->name ?>" onchange="menu.updateItem(<?= $item->id ?>, 'name', this)">
     <i class="icon-link icons"></i> <input type="text" value="<?= $item->link ?>" onchange="menu.updateItem(<?= $item->id ?>, 'link', this)">

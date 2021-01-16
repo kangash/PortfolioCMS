@@ -22,6 +22,7 @@ class ComposerStaticInitab31b739fac6c63ab5925b058b65150e
             'Content\\plugins\\' => 16,
             'Content\\' => 8,
             'Cms\\' => 4,
+            'Catalog\\' => 8,
         ),
         'A' => 
         array (
@@ -49,6 +50,10 @@ class ComposerStaticInitab31b739fac6c63ab5925b058b65150e
         'Cms\\' => 
         array (
             0 => __DIR__ . '/../..' . '/cms',
+        ),
+        'Catalog\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/catalog',
         ),
         'Admin\\' => 
         array (

@@ -14,11 +14,12 @@
             "Admin\\": "admin",
             "Engine\\DI\\": "engine\\DI",
             "Content\\": "content\\",
+            "Catalog\\": "catalog\\",
             "Content\\plugins\\": "content\\plugins"
         }, 
         "files": [
-            "engine/defines.php",
-            "engine/function.php"
+            "engine/Defines.php",
+            "engine/Function.php"
         ]
     }
 }

@@ -18,7 +18,6 @@ class AdminController extends Controller
         parent::__construct($di);
         
         $this->auth = new Auth();
-        $this->data['auth'] = $this->auth;
         // Если логаут равно 1 то мы разлогиним пользователя 
         if ($this->auth->hashUser() == null) {
             header('Location: /admin/login/');

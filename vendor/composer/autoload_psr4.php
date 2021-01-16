@@ -11,5 +11,6 @@ return array(
     'Content\\plugins\\' => array($baseDir . '/content/plugins'),
     'Content\\' => array($baseDir . '/content'),
     'Cms\\' => array($baseDir . '/cms'),
+    'Catalog\\' => array($baseDir . '/catalog'),
     'Admin\\' => array($baseDir . '/admin'),
 );

@@ -16,9 +16,9 @@ function path($section)
             return sprintf($pathMask, 'Controller');
         case 'config':
             if (ENV == "Admin"){
-                return sprintf($pathMask, '\Config\\');
+                return sprintf($pathMask, '..\\engine\Config\\');
             }
-            return sprintf($pathMask, '\Cms\Config\\');
+            return sprintf($pathMask, '\\engine\Config\\');
 
         case 'model':
             return sprintf($pathMask,  'Model');
@@ -33,7 +33,7 @@ function path($section)
 
 function path_content($section = '')
 {
-    $pathMask = $_SERVER['DOCUMENT_ROOT'] . DS . 'content' . DS . '%s';
+    $pathMask = $_SERVER['DOCUMENT_ROOT'] . DS . 'catalog\\View' . DS . '%s';
 
     switch (strtolower($section)) 
     {
@@ -80,7 +80,7 @@ function languages()
 function getThemes()
 {
 
-    $themesPath = '../content/themes';
+    $themesPath = '../catalog\View/themes';
     $list       = scandir($themesPath);
     $baseUrl    = \Engine\Core\Config\Config::item('baseUrl');
 
@@ -93,7 +93,7 @@ function getThemes()
         foreach ($list as $dir) {
             $pathThemeDir = $themesPath . '/' . $dir;
             $pathConfig   = $pathThemeDir . '/theme.json';
-            $pathScreen   = '\content\themes\\' . $dir . '\img\6.png';
+            $pathScreen   = '\catalog\View\\themes\\' . $dir . '\img\6.png';
 
             if (is_dir($pathThemeDir) && is_file($pathConfig)) {
                 $config = file_get_contents($pathConfig);
@@ -113,8 +113,7 @@ function getThemes()
 function getPlugins()
 {
     global $di;
-
-
+    
     $pluginsPath = path_content('plugins');
     $list        = scandir($pluginsPath);
     $plugins     = [];
@@ -124,7 +123,7 @@ function getPlugins()
         unset($list[1]);
 
         foreach ($list as $namePlugin) {
-            $namespace = '\\Content\\plugins\\' . $namePlugin . '\\Plugin';
+            $namespace = '\\Catalog\\View\\plugins\\' . $namePlugin . '\\Plugin';
           
             if (class_exists($namespace)) {
                 $plugin = new $namespace($di);
@@ -141,7 +140,8 @@ function getPlugins()
  */
 function getTypes($switch = 'page')
 {
-    $themePath = path_content('themes') . '/' . \Setting::get('active_theme')->value;
+    $themePath = path_content('themes') . '/' . \Catalog\Model\SettingMirror::get('active_theme')->value . '/template';
+
     $list      = scandir($themePath);
     $types     = [];
 

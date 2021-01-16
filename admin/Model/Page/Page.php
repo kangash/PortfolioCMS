@@ -20,6 +20,8 @@ class Page
 
     public $type;
 
+    public $name_item_category;
+
     public $status;
 
     public $image;
@@ -101,6 +103,23 @@ class Page
     {
         $this->type = $type;
     }
+
+
+    /**
+    * @return mixed
+    */
+   public function getNameItemCategory()
+   {
+       return $this->name_item_category;
+   }
+       /**
+    * @param mixed $name_item_category
+    */
+   public function setNameItemCategory($name_item_category)
+   {
+       $this->name_item_category = $name_item_category;
+   }
+
 
             /**
      * @return mixed

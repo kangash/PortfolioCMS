@@ -8,12 +8,25 @@ class PageRepository extends Model
 {
     public function getPages()
     {
-        $sql = $this->queryBuilder->select()
+        $sql = $this->queryBuilder
+            ->select()
             ->from('page')
             ->orderBy('id', 'DESC')
             ->sql();
 
         return $this->db->query($sql);
+    }
+
+    public function getPagesType($where, $limit = false)
+    {
+        $sql = $this->queryBuilder
+            ->select()
+            ->from('page')
+            ->where('type', $where)
+            ->orderBy('id', 'DESC')
+            ->sql();
+
+        return $this->db->query($sql, $this->queryBuilder->values);
     }
 
     public function getPageData($id)
@@ -64,8 +77,11 @@ class PageRepository extends Model
             $page = new Page($params['page_id']);
             $page->setTitle($params['title']);
             $page->setContent($params['content']);
+            $page->setSegment(\Engine\Helper\Text::transliteration($params['segment']));
+            $page->setImage($params['image']);
             $page->setStatus($params['status']);
             $page->setType($params['type']);
+            $page->setNameItemCategory($params['category']);
             $page->save();
         }
     }

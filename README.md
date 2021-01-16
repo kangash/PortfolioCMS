@@ -1,5 +1,5 @@
-# MVC flexibleCMS
-This project was created for training purposes and is a reflection of the code for a video course on creating a site content management system from https://www.youtube.com/watch?v=cGrIAFycpwA&list=PLZFDSY0g9advV820J80psX3aP_oXGQDT2
+# MVC PortfolioCMS
+
 
 # Installation
 1. We clone the repository.

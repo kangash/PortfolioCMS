@@ -38,6 +38,7 @@ class Load
             $modelRegistry = $this->di->get('model') ?: new \stdClass();
             $modelRegistry->{lcfirst($modelName)} = new $namespaceModel($this->di);
             $this->di->set('model', $modelRegistry);
+            return $modelRegistry;
         }
         return $isClassModel;
     }
@@ -54,7 +55,6 @@ class Load
         $language->{$languageName} = $content; // Создаем пустому класу свойство и присваваем ей значение масива 
         $this->di->set('language', $language); // добавляем stdClass с масивом в ди контейнер
         return $content;
-
     }
 
 

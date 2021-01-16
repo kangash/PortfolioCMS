@@ -11,6 +11,7 @@
 <script src="/admin/Assets/js/post.js"></script>
 <script src="/admin/Assets/js/setting.js"></script>
 <script src="/admin/Assets/js/menu.js"></script>
+<script src="/admin/Assets/js/category.js"></script>
 <script src="/admin/Assets/js/plugin.js"></script>
 </body>
 </html>

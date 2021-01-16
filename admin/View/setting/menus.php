@@ -46,7 +46,7 @@
                             Edit menu
                         </h4>
                         <br>
-                        <input type="hidden" id="sortMenuId" value="<?php echo $menuId ?>" />
+                        <input type="hidden" data-menus="true" id="sortMenuId" value="<?php echo $menuId ?>" />
                         <ol id="listItems" class="edit-menu">
                             <?php foreach($editMenu as $item) {
                                 Theme::block('setting/menu_item', [
@@ -91,5 +91,7 @@
             </div>
         </div>
     </div>
+
+
 
 <?php $this->theme->footer(); ?>

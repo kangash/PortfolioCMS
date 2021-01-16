@@ -1,8 +1,8 @@
 <?php
 namespace Engine\Core\Template;
 
-use Engine\Core\Template\Theme;
-use Engine\Core\Template\Setting;
+use Catalog\Model\SettingMirror;
+use Catalog\Model\MenuMirror;
 
 class View
 {
@@ -11,22 +11,29 @@ class View
     protected $setting;
     protected $menuItem;
 
+    private $activeTheme;
+
     public function __construct($di)
     {
-        $this->di        = $di;
-        $this->theme     = new Theme();
-        $this->setting   = new Setting($this->di);
-        $this->menuItem  = new Menu($this->di);
+        $this->di = $di;
+    }
+
+    public function construct()
+    {
+        $this->theme = new Theme();
+        $this->setting   = new SettingMirror($this->di);
+        $this->menuItem  = new MenuMirror($this->di);
+        $this->activeTheme = SettingMirror::activeTheme()->value;
 
     }
 
     public function render($template, $vars = [])
     {
-        $function = Theme::getThemePath() . '/function.php';
+        
+        $function = $this->theme->getThemePath() . '/function.php';
         if (file_exists($function)) {
             require $function;
         }
-
 
         $templatePath = $this->getTemplatePath($template, ENV); // Если 2 аргументом ничего не передавать, то константа подхватиться глобальнО
 
@@ -36,8 +43,9 @@ class View
                 sprintf('Tempate "%s"not found %s', $template, $templatePath)
             );
         }
-        // $vars['lang']
+        
         $vars['lang'] = $this->di->get['language'];
+        $vars['active_theme'] = $this->activeTheme;
         $this->theme->setData($vars);
         extract($vars); //из всех ключей масива создаст переменные 
 
@@ -57,19 +65,12 @@ class View
  
     private function getTemplatePath($template, $env = null)
     {
-        if($env == 'Cms') {
-            $theme = Setting::activeTheme();
-
-            return ROOT_DIR . '/content/themes/' . $theme->value . '/' . $template . '.php';
+        if($env == 'Catalog') {
+            return ROOT_DIR . '/Catalog/View/themes/' . $this->activeTheme . '/' . $template . '.php';
         }
             return path('view') . '/' . $template . '.php';
 
     }
-
-    private function getThemePath()
-    {
-    return ROOT_DIR . '/content/themes/default/';
-    } 
 
 
 }

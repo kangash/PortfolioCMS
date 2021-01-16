@@ -25,6 +25,7 @@ class SettingRepository extends Model
             ->sql();
 
         $query = $this->db->query($sql, $this->queryBuilder->values);
+
         return isset($query[0]) ? $query[0] : null; 
     }
 
